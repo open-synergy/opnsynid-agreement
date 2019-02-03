@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -35,7 +34,7 @@ class AgreementClauseAbstract(models.AbstractModel):
         string="Section",
         comodel_name="agreement.section_abstract",
         required=True,
-        select=True,
+        index=True,
         ondelete="cascade",
     )
     name = fields.Char(

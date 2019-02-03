@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -115,7 +114,7 @@ class AgreementAgreement(models.Model):
         string="Responsible",
         comodel_name="res.users",
         default=lambda self: self._default_user_id(),
-        select=True,
+        index=True,
         required=True,
         readonly=True,
         states={
@@ -127,7 +126,7 @@ class AgreementAgreement(models.Model):
     parent_id = fields.Many2one(
         string="Parent Agreement",
         comodel_name="agreement.agreement",
-        select=True,
+        index=True,
         readonly=True,
         states={
             "draft": [
@@ -141,7 +140,7 @@ class AgreementAgreement(models.Model):
         domain=[
             ("parent_id", "=", False),
         ],
-        select=True,
+        index=True,
         readonly=True,
         states={
             "draft": [
@@ -152,7 +151,7 @@ class AgreementAgreement(models.Model):
     template_id = fields.Many2one(
         string="Template",
         comodel_name="agreement.template",
-        select=True,
+        index=True,
         readonly=True,
         states={
             "draft": [
