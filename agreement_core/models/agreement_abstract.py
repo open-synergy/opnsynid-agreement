@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -38,7 +37,7 @@ class AgreementAbstract(models.AbstractModel):
         string="Type",
         comodel_name="agreement.type",
         required=True,
-        select=True,
+        index=True,
     )
     raw_description = fields.Text(
         string="Raw Description",

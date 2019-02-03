@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -15,7 +14,7 @@ class AgreementSectionAbstract(models.AbstractModel):
         "raw_content",
     )
     def _compute_content(self):
-        MailTemplate = self.env["email.template"]
+        MailTemplate = self.env["mail.template"]
         for section in self:
             # lang = section.agreement_id.lang or "en_US"
             lang = "en_US"
@@ -25,7 +24,7 @@ class AgreementSectionAbstract(models.AbstractModel):
                     result = MailTemplate.with_context(lang=lang).\
                         render_template(
                             section.raw_content,
-                            str(section._model),
+                            str(section._name),
                             section.id)
                 except:
                     pass
@@ -35,7 +34,7 @@ class AgreementSectionAbstract(models.AbstractModel):
         string="Agreement",
         comodel_name="agreement.abstract",
         required=True,
-        select=True,
+        index=True,
         ondelete="cascade",
     )
     name = fields.Char(
