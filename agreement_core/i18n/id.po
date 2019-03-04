@@ -60,7 +60,7 @@ msgstr ""
 #. module: agreement_core
 #: field:agreement.agreement,active_user_id:0
 msgid "Activated By"
-msgstr ""
+msgstr "Diaktifkan Oleh"
 
 #. module: agreement_core
 #: view:agreement.agreement:agreement_core.agreement_agreement_view_form
@@ -69,7 +69,7 @@ msgstr ""
 #: field:agreement.cancel_reason,active:0 field:agreement.template,active:0
 #: field:agreement.termination_reason,active:0 field:agreement.type,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: agreement_core
 #: field:agreement.agreement,active_date:0
