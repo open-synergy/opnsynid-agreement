@@ -40,7 +40,7 @@
                     <button name="button_expire" string="Expire" class="oe_highlight" type="object" attrs="{'invisible':['|',('state','!=','active'),('expire_ok','=',False)]}" confirm="Mark as expire agreement. Are you sure?"/>
                     <button name="button_new_revision" string="Create New Revision" class="oe_highlight" type="object" attrs="{'invisible':['|',('state','!=','cancel'),('revision_ok','=',False)]}" confirm="Create new revision. Are you sure?"/>
                     <button name="%(terminate_agreement_action)d" string="Terminate" type="action" attrs="{'invisible':['|',('state','!=','active'),('terminate_ok','=',False)]}" confirm="Terminate agreement. Are you sure?"/>
-                    <button name="%(cancel_agreement_action)d" string="Cancel" type="action" attrs="{'invisible':['|',('state','=','cancel'),('cancel_ok','=',False)]}" confirm="Cancel agreement. Are you sure?"/>
+                    <button name="%(base_cancel_reason.base_cancel_reason_wizard_action)d" string="Cancel" type="action" attrs="{'invisible':['|',('state','=','cancel'),('cancel_ok','=',False)]}" confirm="Cancel agreement. Are you sure?"/>
                     <button name="button_restart" string="Set to Draft" class="oe_highlight" type="object" attrs="{'invisible':['|',('state','!=','cancel'),('restart_ok','=',False)]}" confirm="Reset agreement. Are you sure?"/>
                     <field name="state" string="State" widget="statusbar" statusbar_visible="draft,confirm,approve,active"/>
                 </header>

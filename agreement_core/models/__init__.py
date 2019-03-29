@@ -4,7 +4,6 @@
 
 from . import (
     agreement_type,
-    agreement_cancel_reason,
     agreement_termination_reason,
     agreement_abstract,
     agreement_section_abstract,
