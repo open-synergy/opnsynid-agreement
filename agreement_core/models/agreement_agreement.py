@@ -16,6 +16,7 @@ class AgreementAgreement(models.Model):
         "base.sequence_document",
         "base.workflow_policy_object",
         "base.document_version",
+        "base.cancel.reason_common"
     ]
 
     @api.model
@@ -215,11 +216,6 @@ class AgreementAgreement(models.Model):
         required=True,
         readonly=True,
         default="draft",
-    )
-    cancel_reason_id = fields.Many2one(
-        string="Cancel Reason",
-        comodel_name="agreement.cancel_reason",
-        readonly=True,
     )
     terminate_reason_id = fields.Many2one(
         string="Terminate Reason",

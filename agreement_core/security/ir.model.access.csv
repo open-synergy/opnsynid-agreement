@@ -25,7 +25,5 @@ agreement_template_employee,agreement.template - employee,model_agreement_templa
 agreement_template_all,agreement.template - all,model_agreement_template,,1,0,0,0
 agreement_termination_reason_employee,agreement.termination_reason - employee,model_agreement_termination_reason,base.group_user,1,1,1,1
 agreement_termination_reason_all,agreement.termination_reason - all,model_agreement_termination_reason,,1,0,0,0
-agreement_cancel_reason_employee,agreement.cancel_reason - employee,model_agreement_cancel_reason,base.group_user,1,1,1,1
-agreement_cancel_reason_all,agreement.cancel_reason - all,model_agreement_cancel_reason,,1,0,0,0
 agreement_type_employee,agreement.type - employee,model_agreement_type,base.group_user,1,1,1,1
 agreement_type_all,agreement.type - all,model_agreement_type,,1,0,0,0
