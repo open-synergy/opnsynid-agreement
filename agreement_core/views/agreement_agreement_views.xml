@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2017 OpenSynergy Indonesia
+<!-- Copyright 2018-2019 OpenSynergy Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <openerp>
@@ -188,7 +188,8 @@
                                     <field name="sequence" widget="handle"/>
                                     <field name="name"/>
                                     <field name="party_id"/>
-                                    <field name="contact_id"/>
+                                    <field name="allowed_contact_ids" widget="many2many_tags" invisible="1"/>
+                                    <field name="contact_id" domain="[('id','in',allowed_contact_ids[0][2])]"/>
                                 </tree>
                             </field>
                         </page>

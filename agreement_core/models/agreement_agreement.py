@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2018 OpenSynergy Indonesia
+# Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api, _
@@ -343,7 +343,7 @@ class AgreementAgreement(models.Model):
         value = {
             "title": "",
             "type_id": False,
-            "raw_content": "",
+            "raw_description": "",
             "recital_ids": [],
             "section_ids": [],
             "appendix_ids": [],
@@ -354,7 +354,8 @@ class AgreementAgreement(models.Model):
         if template_id:
             template = obj_template.browse([template_id])[0]
             value["title"] = template.title
-            value["type_id"] = template.type_id.id,
+            value["type_id"] = template.type_id.id
+            value["raw_description"] = template.raw_description
             value["recital_ids"] = template._prepare_recital()
             value["section_ids"] = template._prepare_section()
             value["appendix_ids"] = template._prepare_appendix()
