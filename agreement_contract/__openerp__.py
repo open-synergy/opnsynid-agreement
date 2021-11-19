@@ -5,7 +5,7 @@
 {
     "name": "Agreement - Contract",
     "version": "8.0.1.0.0",
-    "website": "https://opensynergy-indonesia.com",
+    "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia",
     "license": "AGPL-3",
     "installable": True,

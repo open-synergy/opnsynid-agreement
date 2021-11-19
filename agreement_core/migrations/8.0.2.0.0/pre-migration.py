@@ -5,8 +5,8 @@
 from openupgradelib import openupgrade
 
 column_renames = {
-    'agreement_agreement': [
-        ('cancel_reason_id', 'old_cancel_reason_id'),
+    "agreement_agreement": [
+        ("cancel_reason_id", "old_cancel_reason_id"),
     ],
 }
 
@@ -19,7 +19,8 @@ def migrate_install_module(cr):
         SET state='to install'
         WHERE name = 'base_cancel_reason' AND
         state='uninstalled'
-        """)
+        """,
+    )
 
 
 @openupgrade.migrate()

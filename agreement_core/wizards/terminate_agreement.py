@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api, fields
+from openerp import api, fields, models
 
 
 class AgreementTerminateAgreement(models.TransientModel):
@@ -24,7 +24,5 @@ class AgreementTerminateAgreement(models.TransientModel):
     def _confirm_terminate(self):
         self.ensure_one()
         agreement_ids = self.env.context.get("active_ids", [])
-        agreements = self.env["agreement.agreement"].browse(
-            agreement_ids
-        )
+        agreements = self.env["agreement.agreement"].browse(agreement_ids)
         agreements.button_terminate(self.terminate_reason_id.id)

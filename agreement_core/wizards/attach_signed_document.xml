@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data>
 <record id="attach_signed_document_view_form" model="ir.ui.view">
@@ -7,13 +7,19 @@
     <field name="arch" type="xml">
         <form>
             <group name="group_1" colspan="4" col="2">
-                <field name="agreement_id" invisible="1"/>
-                <field name="document"/>
+                <field name="agreement_id" invisible="1" />
+                <field name="document" />
             </group>
             <footer>
-                <button string="Confirm" name="action_confirm" type="object" class="oe_highlight" confirm="Cancel participants. Are you sure?"/>
+                <button
+                            string="Confirm"
+                            name="action_confirm"
+                            type="object"
+                            class="oe_highlight"
+                            confirm="Cancel participants. Are you sure?"
+                        />
                 or
-                <button string="Cancel" class="oe_link" special="cancel"/>
+                <button string="Cancel" class="oe_link" special="cancel" />
             </footer>
         </form>
     </field>
@@ -24,7 +30,7 @@
     <field name="res_model">agreement.attach_signed_document</field>
     <field name="view_type">form</field>
     <field name="view_mode">form</field>
-    <field name="view_id" ref="attach_signed_document_view_form"/>
+    <field name="view_id" ref="attach_signed_document_view_form" />
     <field name="target">new</field>
 </record>
 </data>

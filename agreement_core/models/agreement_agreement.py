@@ -2,7 +2,7 @@
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -16,7 +16,7 @@ class AgreementAgreement(models.Model):
         "base.sequence_document",
         "base.workflow_policy_object",
         "base.document_version",
-        "base.cancel.reason_common"
+        "base.cancel.reason_common",
     ]
 
     @api.model
@@ -360,9 +360,7 @@ class AgreementAgreement(models.Model):
             value["section_ids"] = template._prepare_section()
             value["appendix_ids"] = template._prepare_appendix()
             value["party_ids"] = template._prepare_party()
-            value["report_id"] = template.report_id and \
-                template.report_id.id or \
-                False
+            value["report_id"] = template.report_id and template.report_id.id or False
         return {"value": value, "domain": domain}
 
     @api.model
@@ -370,9 +368,11 @@ class AgreementAgreement(models.Model):
         _super = super(AgreementAgreement, self)
         result = _super.create(values)
         sequence = result._create_sequence()
-        result.write({
-            "name": sequence,
-        })
+        result.write(
+            {
+                "name": sequence,
+            }
+        )
         return result
 
     @api.multi
@@ -417,8 +417,7 @@ class AgreementAgreement(models.Model):
     @api.multi
     def button_terminate(self, terminate_reason_id=False):
         for agreement in self:
-            agreement.write(
-                agreement._prepare_terminate_data(terminate_reason_id))
+            agreement.write(agreement._prepare_terminate_data(terminate_reason_id))
 
     @api.multi
     def button_cancel(self, cancel_reason_id=False):
@@ -537,7 +536,7 @@ class AgreementAgreement(models.Model):
                     criteria += [
                         "|",
                         ("origin_version_id", "=", origin.id),
-                        ("id", "=", origin.id)
+                        ("id", "=", origin.id),
                     ]
                 else:
                     criteria += [
@@ -552,7 +551,6 @@ class AgreementAgreement(models.Model):
     )
     def _constrains_signed_doc(self):
         for agreement in self:
-            if agreement.state == "approve" and \
-                    not agreement.signed_document_id:
+            if agreement.state == "approve" and not agreement.signed_document_id:
                 msg = _("Please attach signed document")
                 raise UserError(msg)

@@ -2,7 +2,7 @@
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class AgreementPartyAbstract(models.AbstractModel):
@@ -18,17 +18,21 @@ class AgreementPartyAbstract(models.AbstractModel):
         obj_partner = self.env["res.partner"]
         for party in self:
             result = []
-            if party.party_id and \
-                    party.party_id.is_company and \
-                    not party.party_id.parent_id:
+            if (
+                party.party_id
+                and party.party_id.is_company
+                and not party.party_id.parent_id
+            ):
                 criteria = [
                     ("id", "child_of", party.party_id.id),
                     ("is_company", "=", False),
                 ]
                 result = obj_partner.search(criteria).ids
-            elif party.party_id and \
-                    not party.party_id.is_company and \
-                    not party.party_id.parent_id:
+            elif (
+                party.party_id
+                and not party.party_id.is_company
+                and not party.party_id.parent_id
+            ):
                 result = [party.party_id.id]
             party.allowed_contact_ids = result
 

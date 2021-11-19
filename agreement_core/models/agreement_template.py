@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class AgreementTemplate(models.Model):
@@ -39,12 +39,18 @@ class AgreementTemplate(models.Model):
         self.ensure_one()
         result = []
         for recital in self.recital_ids:
-            result.append((0, 0, {
-                "name": recital.name,
-                "title": recital.title,
-                "sequence": recital.sequence,
-                "raw_content": recital.raw_content,
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "name": recital.name,
+                        "title": recital.title,
+                        "sequence": recital.sequence,
+                        "raw_content": recital.raw_content,
+                    },
+                )
+            )
         return result
 
     @api.multi
@@ -52,13 +58,19 @@ class AgreementTemplate(models.Model):
         self.ensure_one()
         result = []
         for section in self.section_ids:
-            result.append((0, 0, {
-                "name": section.name,
-                "title": section.title,
-                "sequence": section.sequence,
-                "raw_content": section.raw_content,
-                "clause_ids": section._prepare_clause(),
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "name": section.name,
+                        "title": section.title,
+                        "sequence": section.sequence,
+                        "raw_content": section.raw_content,
+                        "clause_ids": section._prepare_clause(),
+                    },
+                )
+            )
         return result
 
     @api.multi
@@ -66,12 +78,18 @@ class AgreementTemplate(models.Model):
         self.ensure_one()
         result = []
         for appendix in self.appendix_ids:
-            result.append((0, 0, {
-                "name": appendix.name,
-                "title": appendix.title,
-                "sequence": appendix.sequence,
-                "raw_content": appendix.raw_content,
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "name": appendix.name,
+                        "title": appendix.title,
+                        "sequence": appendix.sequence,
+                        "raw_content": appendix.raw_content,
+                    },
+                )
+            )
         return result
 
     @api.multi
@@ -81,10 +99,16 @@ class AgreementTemplate(models.Model):
         for party in self.party_ids:
             partner_id = party.party_id and party.party_id.id or False
             contact_id = party.contact_id and party.contact_id.id or False
-            result.append((0, 0, {
-                "name": party.name,
-                "sequence": party.sequence,
-                "party_id": partner_id,
-                "contact_id": contact_id,
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "name": party.name,
+                        "sequence": party.sequence,
+                        "party_id": partner_id,
+                        "contact_id": contact_id,
+                    },
+                )
+            )
         return result

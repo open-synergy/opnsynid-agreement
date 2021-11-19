@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 OpenSynergy Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <openerp>
 <data>
 
@@ -11,7 +10,7 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <tree>
-            <field name="name"/>
+            <field name="name" />
         </tree>
     </field>
 </record>
@@ -23,26 +22,61 @@
     <field name="arch" type="xml">
         <form>
             <group name="group_1" colspan="4" col="2">
-                <field name="name"/>
-                <field name="active"/>
-                <field name="sequence_id"/>
+                <field name="name" />
+                <field name="active" />
+                <field name="sequence_id" />
             </group>
             <notebook colspan="4">
                 <page name="note" string="Notes">
-                    <field name="note"/>
+                    <field name="note" />
                 </page>
                 <page name="policy" string="Workflow Policy">
-                    <group name="agreement_policy_1" colspan="4" col="2" string="Agreement">
-                        <field name="agreement_confirm_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_print_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_attach_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_approve_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_active_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_expire_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_terminate_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_revision_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_cancel_group_ids" widget="many2many_tags"/>
-                        <field name="agreement_restart_group_ids" widget="many2many_tags"/>
+                    <group
+                                name="agreement_policy_1"
+                                colspan="4"
+                                col="2"
+                                string="Agreement"
+                            >
+                        <field
+                                    name="agreement_confirm_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_print_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_attach_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_approve_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_active_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_expire_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_terminate_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_revision_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_cancel_group_ids"
+                                    widget="many2many_tags"
+                                />
+                        <field
+                                    name="agreement_restart_group_ids"
+                                    widget="many2many_tags"
+                                />
                     </group>
                 </page>
             </notebook>
@@ -56,7 +90,7 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <search>
-            <field name="name"/>
+            <field name="name" />
         </search>
     </field>
 </record>
@@ -67,16 +101,16 @@
     <field name="res_model">agreement.type</field>
     <field name="view_type">form</field>
     <field name="view_mode">tree,form</field>
-    <field name="search_view_id" ref="agreement_core.agreement_type_view_search"/>
+    <field name="search_view_id" ref="agreement_core.agreement_type_view_search" />
 </record>
 
 <menuitem
-    id="agreement_type_menu"
-    name="Type"
-    parent="agreement_core.agreement_configuration_menu"
-    action="agreement_type_action"
-    sequence="1"
-    />
+            id="agreement_type_menu"
+            name="Type"
+            parent="agreement_core.agreement_configuration_menu"
+            action="agreement_type_action"
+            sequence="1"
+        />
 
 
 </data>
