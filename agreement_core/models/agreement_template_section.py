@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class AgreementTemplateSection(models.Model):
@@ -23,10 +23,16 @@ class AgreementTemplateSection(models.Model):
         self.ensure_one()
         result = []
         for clause in self.clause_ids:
-            result.append((0, 0, {
-                "name": clause.name,
-                "title": clause.title,
-                "sequence": clause.sequence,
-                "raw_content": clause.raw_content,
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "name": clause.name,
+                        "title": clause.title,
+                        "sequence": clause.sequence,
+                        "raw_content": clause.raw_content,
+                    },
+                )
+            )
         return result

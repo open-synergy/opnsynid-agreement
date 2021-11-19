@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class AgreementAppendixAbstract(models.AbstractModel):
@@ -22,9 +22,8 @@ class AgreementAppendixAbstract(models.AbstractModel):
             result = "-"
             if type(appendix.id) is int:
                 result = MailTemplate.with_context(lang=lang).render_template(
-                    appendix.raw_content,
-                    str(appendix._model),
-                    appendix.id)
+                    appendix.raw_content, str(appendix._model), appendix.id
+                )
             appendix.content = result
 
     agreement_id = fields.Many2one(

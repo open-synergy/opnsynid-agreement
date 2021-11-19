@@ -5,7 +5,7 @@
 {
     "name": "Agreement - Core",
     "version": "8.0.2.1.0",
-    "website": "https://opensynergy-indonesia.com",
+    "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia",
     "license": "AGPL-3",
     "installable": True,
@@ -15,7 +15,7 @@
         "base_workflow_policy",
         "email_template",
         "base_document_version",
-        "base_cancel_reason"
+        "base_cancel_reason",
     ],
     "data": [
         "security/ir.model.access.csv",

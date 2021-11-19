@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api, fields
+from openerp import api, fields, models
 
 
 class AgreementAttachSignedDocument(models.TransientModel):
@@ -33,14 +33,14 @@ class AgreementAttachSignedDocument(models.TransientModel):
     def _attach_document(self):
         self.ensure_one()
         agreement_id = self.env.context.get("active_id", [])
-        agreement = self.env["agreement.agreement"].browse(
-            [agreement_id]
-        )[0]
+        agreement = self.env["agreement.agreement"].browse([agreement_id])[0]
         obj_attachment = self.env["ir.attachment"]
         attachment = obj_attachment.create(self._prepare_attachment())
-        agreement.write({
-            "signed_document_id": attachment.id,
-        })
+        agreement.write(
+            {
+                "signed_document_id": attachment.id,
+            }
+        )
 
     @api.multi
     def _prepare_attachment(self):

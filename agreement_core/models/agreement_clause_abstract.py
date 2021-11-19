@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class AgreementClauseAbstract(models.AbstractModel):
@@ -22,9 +22,8 @@ class AgreementClauseAbstract(models.AbstractModel):
             result = "-"
             if type(clause.id) is int:
                 result = MailTemplate.with_context(lang=lang).render_template(
-                    clause.raw_content,
-                    str(clause._model),
-                    clause.id)
+                    clause.raw_content, str(clause._model), clause.id
+                )
             clause.content = result
 
     section_id = fields.Many2one(
