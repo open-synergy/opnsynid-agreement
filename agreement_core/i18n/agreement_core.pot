@@ -923,7 +923,7 @@ msgid "Party ids"
 msgstr ""
 
 #. module: agreement_core
-#: code:addons/agreement_core/models/agreement_agreement.py:557
+#: code:addons/agreement_core/models/agreement_agreement.py:555
 #, python-format
 msgid "Please attach signed document"
 msgstr ""
@@ -1150,7 +1150,7 @@ msgid "Termination reason:"
 msgstr ""
 
 #. module: agreement_core
-#: code:addons/agreement_core/models/agreement_agreement.py:547
+#: code:addons/agreement_core/models/agreement_agreement.py:546
 #, python-format
 msgid "There is already active agreement"
 msgstr ""
@@ -1267,7 +1267,7 @@ msgid "Workflow Policy"
 msgstr ""
 
 #. module: agreement_core
-#: code:addons/agreement_core/models/agreement_agreement.py:437
+#: code:addons/agreement_core/models/agreement_agreement.py:436
 #, python-format
 msgid "You can not restart agreement with revisions"
 msgstr ""
